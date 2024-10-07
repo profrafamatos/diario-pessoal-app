@@ -9,7 +9,6 @@ export async function postThought(username, text) {
   });
 
   if (!response.ok) {
-    console.error("Erro ao adicionar o pensamento.");
     return "Erro ao adicionar o pensamento.";
   }
 
@@ -19,12 +18,15 @@ export async function postThought(username, text) {
 export async function loadThoughts() {
   try {
     const response = await fetch("/thoughts");
+
+    if (!response.ok) {
+      return null; // Se a resposta não for ok, retorna null
+    }
+
     const thoughts = await response.json();
-    renderThoughtsList(thoughts);
-    return thoughts;
+    return thoughts; // Retorna os pensamentos
   } catch (error) {
-    console.error("Erro ao carregar pensamentos:", error);
-    return null;
+    return null; // Retorna null se houver erro
   }
 }
 
@@ -34,7 +36,7 @@ export function logout() {
   return "Logout realizado com sucesso.";
 }
 
-function renderThoughtsList(thoughts) {
+export function renderThoughtsList(thoughts) {
   const thoughtsList = document.getElementById("thoughtsList");
   thoughtsList.innerHTML = ""; // Limpa a lista antes de renderizar
 
@@ -59,19 +61,14 @@ function createThoughtItem(thought) {
   return thoughtItem;
 }
 
-async function deleteThought(thoughtId) {
-  if (!thoughtId) return;
-
-  const response = await fetch(`/thought/${thoughtId}`, {
-    method: "DELETE",
-  });
-
-  if (!response.ok) {
-    console.error("Erro ao excluir o pensamento.");
-    return "Erro ao excluir o pensamento.";
+export const deleteThought = async (id) => {
+  const response = await fetch(`/thought/${id}`, { method: "DELETE" });
+  const data = await response.json();
+  if (response.ok && data.success) {
+    return "Pensamento excluído com sucesso.";
   }
-  return "Pensamento excluído com sucesso.";
-}
+  throw new Error("Erro ao excluir");
+};
 
 function setupDeleteIcons() {
   const deleteIcons = document.querySelectorAll(".delete-icon");

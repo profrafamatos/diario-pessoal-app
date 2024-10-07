@@ -1,22 +1,25 @@
 module.exports = {
-  testEnvironment: 'jest-environment-jsdom',
+  testEnvironment: "jest-environment-jsdom",
 
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    "^.+\\.js$": "babel-jest",
   },
 
-  moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ["js", "mjs", "cjs", "jsx", "json", "node"],
 
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
+    "^@/(.*)$": "<rootDir>/$1",
   },
 
-  transformIgnorePatterns: ['/node_modules/'],
+  transformIgnorePatterns: ["/node_modules/"],
 
-  roots: ['<rootDir>/tests'],
+  roots: ["<rootDir>/tests"],
 
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/public/js/**/*.js'],
+  collectCoverageFrom: ["<rootDir>/public/js/**/*.js"],
 
   testTimeout: 10000,
+
+  testEnvironment: "jest-environment-jsdom",
+  setupFilesAfterEnv: ["jest-fetch-mock"],
 };

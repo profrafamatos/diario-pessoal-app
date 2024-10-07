@@ -2,7 +2,7 @@ import { loginUser, setupLoginForm } from "../../../public/js/login.js";
 
 global.fetch = jest.fn(); // Mock da função fetch
 
-describe("loginUser", () => {
+describe("Teste de funções do módulo loginUser", () => {
   test("deve chamar a API de login com os parâmetros corretos", async () => {
     fetch.mockResolvedValueOnce({
       ok: true,
