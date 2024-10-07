@@ -1,0 +1,28 @@
+{
+  "name": "diario-pessoal",
+  "version": "1.0.0",
+  "description": "Projeto base de um diário pessoal utilizado para aulas de Teste de Software. Serve como base para implementação de testes unitários, de integração e automatizados de interface do usuário. O projeto utiliza Express para o backend e manipulação de rotas, e inclui páginas HTML para simulação de entradas de usuários",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
+  },
+  "keywords": [
+    "teste de software",
+    "testes unitários",
+    "testes de integração",
+    "testes automatizados"
+  ],
+  "author": {
+    "name": "Rafaella Matos",
+    "email": "prof.rafaella.matos@gmail.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

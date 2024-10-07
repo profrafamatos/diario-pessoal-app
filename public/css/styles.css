@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  padding: 10px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#loginForm {
+  width: 300px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#loginError {
+  color: red;
+  padding: 10px;
+  text-align: center;
+}
+
+#usernameDisplay {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#thoughtForm {
+  max-width: 600px;
+  margin: auto;
+}
+
+#thought {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+#thoughtsList {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#thoughtsList div {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  color: #555;
+}
+
+#thoughtsList div:last-child {
+  border-bottom: none;
+}
+
+#logoutButton {
+  padding: 10px;
+  background-color: #dc3545; /* Cor de fundo vermelha */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block; /* Faz o botão ocupar toda a largura disponível */
+  width: 150px; /* Largura do botão */
+  margin-left: auto; /* Centraliza o botão horizontalmente */
+  margin-right: auto; /* Centraliza o botão horizontalmente */
+}
+
+#logoutButton:hover {
+  background-color: #c82333; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilos para o ícone de lixeira */
+.delete-icon {
+  margin-left: 10px; /* Espaçamento à esquerda do ícone */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  color: #dc3545; /* Cor do ícone */
+}
+
+.delete-icon:hover {
+  color: #c82333; /* Cor do ícone ao passar o mouse */
+}
