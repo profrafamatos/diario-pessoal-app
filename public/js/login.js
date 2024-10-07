@@ -1,5 +1,5 @@
 // login.js
-export async function loginUser(username, password) {
+async function loginUser(username, password) {
   return await fetch("/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -7,7 +7,7 @@ export async function loginUser(username, password) {
   });
 }
 
-export function setupLoginForm() {
+function setupLoginForm() {
   const loginForm = document.getElementById("loginForm");
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -18,21 +18,28 @@ export function setupLoginForm() {
       const response = await loginUser(username, password);
       if (response.ok) {
         const data = await response.json();
-        redirectToDiaryPage(data.username);
+        return redirectToDiaryPage(data.username);
       } else {
         const data = await response.json();
         showError(data.message);
       }
     } catch (error) {
-      showError("Erro ao se comunicar com o servidor.");
+      return showError("Erro ao se comunicar com o servidor.");
     }
   });
 }
 
 function redirectToDiaryPage(username) {
   window.location.href = `/diary?username=${username}`;
+  return `Redirected to /diary?username=${username}`;
 }
 
 function showError(message) {
   document.getElementById("loginError").textContent = message;
+  return message;
 }
+
+module.exports = {
+  loginUser,
+  setupLoginForm,
+};

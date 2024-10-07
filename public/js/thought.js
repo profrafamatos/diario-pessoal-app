@@ -1,5 +1,5 @@
 // thoughts.js
-export async function postThought(username, text) {
+async function postThought(username, text) {
   if (!text) return;
 
   const response = await fetch("/thought", {
@@ -13,7 +13,7 @@ export async function postThought(username, text) {
   }
 }
 
-export async function loadThoughts() {
+async function loadThoughts() {
   try {
     const response = await fetch("/thoughts");
     const thoughts = await response.json();
@@ -23,9 +23,9 @@ export async function loadThoughts() {
   }
 }
 
-export function logout() {
-  localStorage.removeItem('authToken'); // Exemplo de remoção de token armazenado no localStorage
-  window.location.href = 'index.html';
+function logout() {
+  localStorage.removeItem("authToken"); // Exemplo de remoção de token armazenado no localStorage
+  window.location.href = "index.html";
 }
 
 function renderThoughtsList(thoughts) {
@@ -76,4 +76,4 @@ function setupDeleteIcons() {
   });
 }
 
-
+module.exports = { postThought, loadThoughts, logout };
