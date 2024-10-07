@@ -1,4 +1,4 @@
-const { loginUser, setupLoginForm } = require("../../../public/js/login");
+import { loginUser, setupLoginForm } from "../../../public/js/login.js";
 
 global.fetch = jest.fn(); // Mock da função fetch
 

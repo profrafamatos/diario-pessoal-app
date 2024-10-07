@@ -1,5 +1,5 @@
 // login.js
-async function loginUser(username, password) {
+export async function loginUser(username, password) {
   return await fetch("/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -7,7 +7,7 @@ async function loginUser(username, password) {
   });
 }
 
-function setupLoginForm() {
+export function setupLoginForm() {
   const loginForm = document.getElementById("loginForm");
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -39,7 +39,3 @@ function showError(message) {
   return message;
 }
 
-module.exports = {
-  loginUser,
-  setupLoginForm,
-};

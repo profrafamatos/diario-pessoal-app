@@ -1,7 +1,7 @@
 // main.js
-const { setupLoginForm } = require ("./login.js");
-const { postThought, loadThoughts } = require("./thought.js");
-const { getUsernameFromURL, displayUsername } = require ("./utils.js");
+import { setupLoginForm } from "./login.js";
+import { postThought, loadThoughts } from "./thought.js";
+import { getUsernameFromURL, displayUsername } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm");

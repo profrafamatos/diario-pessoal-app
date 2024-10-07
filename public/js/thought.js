@@ -1,5 +1,5 @@
 // thoughts.js
-async function postThought(username, text) {
+export async function postThought(username, text) {
   if (!text) return;
 
   const response = await fetch("/thought", {
@@ -10,22 +10,28 @@ async function postThought(username, text) {
 
   if (!response.ok) {
     console.error("Erro ao adicionar o pensamento.");
+    return "Erro ao adicionar o pensamento.";
   }
+
+  return "Pensamento adicionado com sucesso.";
 }
 
-async function loadThoughts() {
+export async function loadThoughts() {
   try {
     const response = await fetch("/thoughts");
     const thoughts = await response.json();
     renderThoughtsList(thoughts);
+    return thoughts;
   } catch (error) {
     console.error("Erro ao carregar pensamentos:", error);
+    return null;
   }
 }
 
-function logout() {
+export function logout() {
   localStorage.removeItem("authToken"); // Exemplo de remoção de token armazenado no localStorage
   window.location.href = "index.html";
+  return "Logout realizado com sucesso.";
 }
 
 function renderThoughtsList(thoughts) {
@@ -62,7 +68,9 @@ async function deleteThought(thoughtId) {
 
   if (!response.ok) {
     console.error("Erro ao excluir o pensamento.");
+    return "Erro ao excluir o pensamento.";
   }
+  return "Pensamento excluído com sucesso.";
 }
 
 function setupDeleteIcons() {
@@ -75,5 +83,3 @@ function setupDeleteIcons() {
     });
   });
 }
-
-module.exports = { postThought, loadThoughts, logout };
