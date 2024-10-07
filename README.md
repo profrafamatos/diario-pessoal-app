@@ -31,8 +31,10 @@ Para rodar o projeto localmente, siga os passos abaixo:
    git clone https://github.com/profrafamatos/diario-pessoal-app.git
    cd diario-pessoal-app
 
-    ```Instale as dependências
+2. Instale as dependências
+    ```bash
     npm install
 
-     ```Inicie o servidor
+3. Inicie o servidor
+    ```bash
      nodemon start
