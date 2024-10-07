@@ -1,0 +1,30 @@
+name: CI - Run Tests
+
+# Dispara o workflow em eventos como push e pull request
+on:
+  push:
+    branches:
+      - main  # Roda quando houver push para a branch "main"
+  pull_request:
+    branches:
+      - main  # Roda em pull requests para a branch "main"
+
+# Definindo os jobs (tarefas) que serão executados
+jobs:
+  test:
+    runs-on: ubuntu-latest  # O workflow vai rodar em um ambiente Ubuntu
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3  # Faz o checkout do código no repositório
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'  # Use a versão do Node.js que você está utilizando
+
+      - name: Install dependencies
+        run: npm install  # Instala as dependências do projeto
+
+      - name: Run tests
+        run: npm test  # Executa os testes (usando Jest, por exemplo)
