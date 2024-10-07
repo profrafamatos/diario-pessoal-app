@@ -4,6 +4,13 @@ let thoughts = [
   { id: 2, username: "admin", text: "Outro pensamento importante." },
 ];
 
+const resetThoughts = () => {
+  thoughts = [
+    { id: 1, username: "admin", text: "Este é o meu primeiro pensamento!" },
+    { id: 2, username: "admin", text: "Outro pensamento importante." },
+  ];
+};
+
 //Obter pensamentos já cadastrados
 exports.getThoughts = (req, res) => {
   res.status(200).json(thoughts);
@@ -27,3 +34,5 @@ exports.deleteThought = (req, res) => {
   thoughts = thoughts.filter((thought) => thought.id !== parseInt(id));
   res.status(204).send();
 };
+
+exports.resetThoughts = resetThoughts;
